@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<class>
+    <wrapper amount="2">
+        <material>Rose</material>
+        <color>red</color>
+        <size>
+            <width>100</width>
+            <height>30</height>
+        </size>
+        <cost>50</cost>
+        <type>CELLOPHANE</type>
+        <isMat>true</isMat>
+    </wrapper>
+    <foliage amount="8">
+        <name>Rose</name>
+        <color>red</color>
+        <cost>50</cost>
+        <freshness>ABSOLUTELY_FRESH</freshness>
+        <isArtificial>false</isArtificial>
+        <length>70</length>
+        <isCurly>true</isCurly>
+    </foliage>
+</class>

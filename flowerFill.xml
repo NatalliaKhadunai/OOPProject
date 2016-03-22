@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<class>
+    <cutflower>
+        <name>Rose</name>
+        <color>red</color>
+        <cost>50</cost>
+        <freshness>ABSOLUTELY_FRESH</freshness>
+        <isArtificial>false</isArtificial>
+        <length>70</length>
+        <burgeonDiameter>12</burgeonDiameter>
+        <hasThorns>true</hasThorns>
+    </cutflower>
+    <cutflower>
+        <name>Lily</name>
+        <color>pink</color>
+        <cost>45</cost>
+        <freshness>ABSOLUTELY_FRESH</freshness>
+        <isArtificial>false</isArtificial>
+        <length>40</length>
+        <burgeonDiameter>8</burgeonDiameter>
+        <hasThorns>false</hasThorns>
+    </cutflower>
+    <cutflower>
+        <name>Chrisantema</name>
+        <color>yellow</color>
+        <cost>55</cost>
+        <freshness>ABSOLUTELY_FRESH</freshness>
+        <isArtificial>false</isArtificial>
+        <length>50</length>
+        <burgeonDiameter>15</burgeonDiameter>
+        <hasThorns>false</hasThorns>
+    </cutflower>
+</class>
