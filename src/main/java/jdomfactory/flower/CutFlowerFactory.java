@@ -2,13 +2,14 @@ package jdomfactory.flower;
 
 import flower.CutFlower;
 import flower.Flower;
+import jdomfactory.AbstractFactoryJDOM;
 import org.apache.log4j.Logger;
 import org.jdom2.Element;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class CutFlowerFactory extends FlowerAbstractFactory {
+public class CutFlowerFactory extends AbstractFactoryJDOM {
 
     private static final Logger log = Logger.getLogger(CutFlowerFactory.class);
 

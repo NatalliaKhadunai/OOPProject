@@ -6,7 +6,9 @@ import java.util.Map.Entry;
 import decoration.*;
 import jdomfactory.decoration.DecorationFactory;
 import jdomfactory.flower.*;
+import jdomfactory.AbstractFactoryJDOM;
 import org.apache.log4j.Logger;
+
 
 public class Bouquet {
     private List<CutFlower> flowers = new LinkedList<CutFlower>();
@@ -49,16 +51,22 @@ public class Bouquet {
 
     public boolean addFlowersFromXML(String XMLFileName) {
         if (isXMLFileNameValid(XMLFileName)) {
-            FlowerAbstractFactory flowerFactory = new CutFlowerFactory();
-            return flowers.addAll(flowerFactory.getElements(XMLFileName));
+            AbstractFactoryJDOM flowerFactory = new CutFlowerFactory();
+            for (Object flower : flowerFactory.getElements(XMLFileName)) {
+                flowers.add((CutFlower)flower);
+            }
+            return true;
         }
         else return false;
     }
 
     public boolean addDecorFromXML(String XMLFileName) {
         if (isXMLFileNameValid(XMLFileName)) {
-            DecorationFactory decorFactory = new DecorationFactory();
-            decorations.putAll(decorFactory.getElements(XMLFileName));
+            AbstractFactoryJDOM decorFactory = new DecorationFactory();
+            for (Object objEntry : decorFactory.getElements(XMLFileName)) {
+                Entry<IDecorable, Integer> entry = (Entry<IDecorable, Integer>) objEntry;
+                decorations.put(entry.getKey(), entry.getValue());
+            }
             return true;
         }
         else return false;

@@ -2,6 +2,7 @@ package jdomfactory.decoration;
 
 import decoration.*;
 import flower.Foliage;
+import jdomfactory.AbstractFactoryJDOM;
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -12,35 +13,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class DecorationFactory {
+public class DecorationFactory extends AbstractFactoryJDOM {
 
     private static final Logger log = Logger.getLogger(DecorationFactory.class);
 
-    public final Map<IDecorable, Integer> getElements(String fileName) {
-        Element rootElement = getRootElement(fileName);
-        Map<IDecorable, Integer> resultMap = null;
-        if (rootElement != null)
-        resultMap =  buildResultCollection(rootElement);
-        return resultMap;
-    }
-
-    protected final Element getRootElement(String fileName) {
-        Element rootElement = null;
-        try {
-            File inputFile = new File(fileName);
-            SAXBuilder saxBuilder = new SAXBuilder();
-            Document document = saxBuilder.build(inputFile);
-            rootElement = document.getRootElement();
-        }
-        catch (IOException | JDOMException e) {
-            log.error(e);
-        }
-        finally {
-            return rootElement;
-        }
-    }
-
-    protected Map<IDecorable, Integer> buildResultCollection(Element rootElement) {
+    protected Set buildResultCollection(Element rootElement) {
         List<Element> elemList = rootElement.getChildren();
         Map<IDecorable, Integer> resultMap = new HashMap<IDecorable, Integer>();
         for (int temp = 0; temp < elemList.size(); temp++) {
@@ -52,7 +29,7 @@ public class DecorationFactory {
             if (elem.getName() == "container")
                 resultMap.put(processContainerElement(elem), Integer.parseInt(elem.getAttributeValue("amount")));
         }
-        return resultMap;
+        return resultMap.entrySet();
     }
 
     private IDecorable processFoliageElement(Element elem) {
