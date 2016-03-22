@@ -1,7 +1,8 @@
-package factory.flower;
+package jdomfactory.flower;
 
 import flower.CutFlower;
 import flower.Flower;
+import flower.PotFlower;
 import org.apache.log4j.Logger;
 import org.jdom2.Element;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class PotFlowerFactory extends FlowerAbstractFactory {
 
-    private static final Logger log = Logger.getLogger("factories");
+    private static final Logger log = Logger.getLogger(PotFlower.class);
 
     protected List<Flower> buildResultCollection(Element rootElement) {
         List<Element> elemList = rootElement.getChildren();

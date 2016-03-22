@@ -1,4 +1,4 @@
-package factory.flower;
+package jdomfactory.flower;
 
 import flower.CutFlower;
 import flower.Flower;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CutFlowerFactory extends FlowerAbstractFactory {
 
-    private static final Logger log = Logger.getLogger("factories");
+    private static final Logger log = Logger.getLogger(CutFlowerFactory.class);
 
     protected List<Flower> buildResultCollection(Element rootElement) {
         List<Element> elemList = rootElement.getChildren();

@@ -11,12 +11,12 @@ public abstract class Flower {
     private String name, color;
     private int cost;
     private Freshness freshness;
-    private final boolean isArtificial;
+    private final boolean artificial;
     
     Flower(String name, String color, boolean isArtificial) {
         this.name = name;
         this.color = color;
-        this.isArtificial = isArtificial;
+        this.artificial = isArtificial;
         this.cost = 1;
         this.freshness = Freshness.MIDDLE_FRESH;
     }
@@ -54,14 +54,14 @@ public abstract class Flower {
     int getFreshnessOrdinal() {
         return freshness.ordinal();
     }
-    
+
     public boolean IsArtificial() {
-        return isArtificial;
+        return artificial;
     }
 
     @Override
     public String toString() {
         return "Flower { " + "name = '" + name + '\'' + ", color = '" + color + '\'' + ", cost = " + cost +
-                ", freshness = " + freshness + ", isArtificial = " + isArtificial;
+                ", freshness = " + freshness + ", isArtificial = " + artificial;
     }
 }

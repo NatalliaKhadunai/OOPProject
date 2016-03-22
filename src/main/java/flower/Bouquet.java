@@ -4,9 +4,8 @@ import java.util.*;
 import java.util.Map.Entry;
 
 import decoration.*;
-import factory.decoration.DecorationFactory;
-import factory.flower.CutFlowerFactory;
-import factory.flower.FlowerAbstractFactory;
+import jdomfactory.decoration.DecorationFactory;
+import jdomfactory.flower.*;
 import org.apache.log4j.Logger;
 
 public class Bouquet {
@@ -20,15 +19,15 @@ public class Bouquet {
             return flowers.add(flower);
         }
         else {
-            log.error("Flower shouldn't be artificial!");
-            throw new IllegalArgumentException("Flower shouldn't be artificial!");
+            log.error("Flower shouldn't be artificial");
+            throw new IllegalArgumentException("Flower shouldn't be artificial");
         }
     }
 
     public boolean removeFlower(CutFlower flower) {
         if (!flowers.contains(flower)) {
-            log.error("No flower found to remove!");
-            throw new IllegalArgumentException("No decoration found to remove!");
+            log.error("No flower found to remove");
+            throw new IllegalArgumentException("No flower found to remove");
         }
         return flowers.remove(flower);
     }
@@ -41,8 +40,8 @@ public class Bouquet {
 
     public int removeDecoration(IDecorable decoration) {
         if (!decorations.containsKey(decoration)) {
-            log.error("No decoration found to remove!");
-            throw new IllegalArgumentException("No decoration found to remove!");
+            log.error("No decoration found to remove");
+            throw new IllegalArgumentException("No decoration found to remove");
         }
         else if (decorations.get(decoration).intValue() == 1) return decorations.remove(decoration);
         else return decorations.put(decoration, decorations.get(decoration).intValue() - 1);
@@ -97,8 +96,8 @@ public class Bouquet {
     private boolean isXMLFileNameValid(String fileName) {
         if (fileName.indexOf(".xml") >= 0) return true;
         else {
-            log.error("Incorrect file name! Format shoud be \".xml\"");
-            throw new IllegalArgumentException("Incorrect file name! Format shoud be \".xml\"");
+            log.error("Incorrect file name. Format shoud be \".xml\"");
+            throw new IllegalArgumentException("Incorrect file name. Format shoud be \".xml\"");
         }
     }
 

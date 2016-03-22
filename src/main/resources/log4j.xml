@@ -53,7 +53,7 @@
         <appender-ref ref="DecorationAppender"/>
     </logger>
 
-    <logger name="factory">
+    <logger name="jdomfactory">
         <level value="INFO"/>
         <appender-ref ref="FactoryAppender"/>
     </logger>

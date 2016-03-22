@@ -1,4 +1,4 @@
-package factory.decoration;
+package jdomfactory.decoration;
 
 import decoration.*;
 import flower.Foliage;
@@ -14,11 +14,13 @@ import java.util.*;
 
 public class DecorationFactory {
 
-    private static final Logger log = Logger.getLogger("factories");
+    private static final Logger log = Logger.getLogger(DecorationFactory.class);
 
     public final Map<IDecorable, Integer> getElements(String fileName) {
         Element rootElement = getRootElement(fileName);
-        Map<IDecorable, Integer> resultMap =  buildResultCollection(rootElement);
+        Map<IDecorable, Integer> resultMap = null;
+        if (rootElement != null)
+        resultMap =  buildResultCollection(rootElement);
         return resultMap;
     }
 

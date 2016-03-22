@@ -1,4 +1,4 @@
-package factory.flower;
+package jdomfactory.flower;
 
 import org.apache.log4j.Logger;
 import org.jdom2.Document;
@@ -16,7 +16,8 @@ public abstract class FlowerAbstractFactory {
 
     public final List getElements(String fileName) {
         Element rootElement = getRootElement(fileName);
-        List resultList =  buildResultCollection(rootElement);
+        List resultList = null;
+        if (rootElement != null) resultList =  buildResultCollection(rootElement);
         return resultList;
     }
 
