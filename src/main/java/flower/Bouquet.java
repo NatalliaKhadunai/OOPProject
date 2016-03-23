@@ -52,8 +52,10 @@ public class Bouquet {
     public boolean addFlowersFromXML(String XMLFileName) {
         if (isXMLFileNameValid(XMLFileName)) {
             AbstractFactoryJDOM flowerFactory = new CutFlowerFactory();
-            for (Object flower : flowerFactory.getElements(XMLFileName)) {
-                flowers.add((CutFlower)flower);
+            Iterator iterator = flowerFactory.getElements(XMLFileName);
+            while (iterator.hasNext()) {
+                CutFlower flower = (CutFlower)iterator.next();
+                flowers.add(flower);
             }
             return true;
         }
@@ -63,8 +65,9 @@ public class Bouquet {
     public boolean addDecorFromXML(String XMLFileName) {
         if (isXMLFileNameValid(XMLFileName)) {
             AbstractFactoryJDOM decorFactory = new DecorationFactory();
-            for (Object objEntry : decorFactory.getElements(XMLFileName)) {
-                Entry<IDecorable, Integer> entry = (Entry<IDecorable, Integer>) objEntry;
+            Iterator iterator = decorFactory.getElements(XMLFileName);
+            while (iterator.hasNext()) {
+                Entry<IDecorable, Integer> entry = (Entry<IDecorable, Integer>)iterator.next();
                 decorations.put(entry.getKey(), entry.getValue());
             }
             return true;

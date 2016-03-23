@@ -15,11 +15,11 @@ public abstract class AbstractFactoryJDOM {
 
     private static final Logger log = Logger.getLogger(AbstractFactoryJDOM.class);
 
-    public final Iterable getElements(String fileName) {
+    public final Iterator getElements(String fileName) {
         Element rootElement = getRootElement(fileName);
         Iterable resultList = null;
         if (rootElement != null) resultList =  buildResultCollection(rootElement);
-        return resultList;
+        return resultList.iterator();
     }
 
     protected final Element getRootElement(String fileName) {
