@@ -31,11 +31,20 @@ abstract class Decoration implements IDecorable  {
     }
 
     public void setSize(int width, int height) {
+        if (width <= 0 || height <= 0) {
+            size.width = 1;
+            size.height = 1;
+            return;
+        }
         size.width = width;
         size.height = height;
     }
 
     public void setCost(int cost) {
+        if (cost <=0) {
+            this.cost = 1;
+            return;
+        }
         this.cost = cost;
     }
 

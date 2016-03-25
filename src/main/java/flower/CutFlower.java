@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package flower;
 
-/**
- *
- * @author user
- */
 public class CutFlower extends Flower {
     private int length, burgeonDiameter;
     private boolean hasThorns;
@@ -25,6 +16,10 @@ public class CutFlower extends Flower {
     }
     
     public void setLength(int length) {
+        if (length <=0) {
+            this.length = 1;
+            return;
+        }
         this.length = length;
     }
     
@@ -33,6 +28,10 @@ public class CutFlower extends Flower {
     }
     
     public void setBurgeonDiameter(int diameter) {
+        if (diameter <=0) {
+            this.burgeonDiameter = 1;
+            return;
+        }
         this.burgeonDiameter = diameter;
     }
     

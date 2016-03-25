@@ -38,6 +38,10 @@ public abstract class Flower {
     }
     
     public void setCost(int cost) {
+        if (cost <=0) {
+            this.cost = 1;
+            return;
+        }
         this.cost = cost;
     }
     

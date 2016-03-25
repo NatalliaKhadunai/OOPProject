@@ -8,6 +8,10 @@ public class PotFlower extends Flower {
     }
     
     public void setHeight(int height) {
+        if (height <=0) {
+            this.height = 1;
+            return;
+        }
         this.height = height;
     }
     
@@ -16,6 +20,10 @@ public class PotFlower extends Flower {
     }
     
     public void setPotVolume(int potVolume) {
+        if (potVolume <=0) {
+            this.potVolume = 1;
+            return;
+        }
         this.potVolume = potVolume;
     }
     

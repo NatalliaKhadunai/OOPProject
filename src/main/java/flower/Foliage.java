@@ -10,7 +10,11 @@ public class Foliage extends Flower implements IDecorable {
         super(name, color, isArtificial);
     }
 
-    public void setLength(int length1) {
+    public void setLength(int length) {
+        if (length <=0) {
+            this.length = 1;
+            return;
+        }
         this.length = length;
     }
 
